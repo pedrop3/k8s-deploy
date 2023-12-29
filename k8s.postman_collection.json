@@ -1,0 +1,46 @@
+{
+	"info": {
+		"_postman_id": "741074be-8066-44ca-82fc-8fdd77af49b2",
+		"name": "k8s",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "2844867"
+	},
+	"item": [
+		{
+			"name": "Create a Post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Title\",\n    \"content\": \"content\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://192.168.49.2/api/posts"
+			},
+			"response": []
+		},
+		{
+			"name": "Find Post",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://192.168.49.2/api/posts/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Actuator",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://192.168.49.2/api/actuator/health"
+			},
+			"response": []
+		}
+	]
+}
