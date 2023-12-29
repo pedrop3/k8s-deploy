@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres-sk8
+    environment:
+      POSTGRES_DB: k8s
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+      
+  api:
+    build:
+      dockerfile: Dockerfile.dev
+      context: .
+    container_name: post-api
+    depends_on:
+      - postgres
+    ports:
+      - "9001:8080"
+    deploy:
+    resources:
+      limits:
+        cpus: '0.5'
+        memory: 100m
+      reservations:
+        memory: 50m
+
+
+volumes:
+  postgresql_data:
